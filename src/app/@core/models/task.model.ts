@@ -9,5 +9,4 @@ export class Task {
     "descripcion": string;
     "nivelPrioridad": NivelPrioridad;
     "status": Status;
-    "subTasks": subTask[];
 }

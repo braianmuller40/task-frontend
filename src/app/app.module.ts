@@ -6,18 +6,20 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TaskComponent } from './@core/pages/task/task.component';
 import { WindowNewtaskComponent } from './@core/pages/task/components/window-newtask/window-newtask/window-newtask.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TaskModule } from './@core/pages/task/task.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskComponent,
-    WindowNewtaskComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    TaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]

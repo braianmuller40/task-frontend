@@ -1,7 +1,7 @@
 <div id="background">
     <div id="panelTop">
         <label id="title">TASKS</label>
-        <button class="fila" id="btnNewTask">NEW TASK</button>
+        <button class="fila" id="btnNewTask" (click)="nuevaTarea()">NEW TASK</button>
     </div>
     <div id="panelMid">
       <div id="tableMid">
@@ -18,23 +18,24 @@
             </div>
         </div>
         <div id="bodyTable">
-            <div class="fila" id="bodyFila">
-                <div class="columna" id="bId">ID</div>
-                <div class="columna" id="bTitulo">TITULO</div>
-                <div class="columna" id="bFecha">FECHA</div>
-                <div class="columna" id="bDescripcion">DESCRIPCION</div>
-                <div class="columna" id="bPrioridad">PRIORIDAD</div>
-                <div class="columna" id="bStatus">STATUS</div>
+            <tr *ngFor="let task of TASKS" class="fila" id="bodyFila">
+                <div class="columna" id="bId">{{task.id}}</div>
+                <div class="columna" id="bTitulo">{{task.titulo}}</div>
+                <div class="columna" id="bFecha">{{task.fechaCreacion}}</div>
+                <div class="columna" id="bDescripcion">{{task.descripcion}}</div>
+                <div class="columna" id="bPrioridad">{{task.nivelPrioridad}}</div>
+                <div class="columna" id="bStatus">{{task.status}}</div>
                 <div class="columna" id="hSubTareas">
                    <button class="fila" id="btnSubTareas">SUB-TAREAS</button>
                 </div>
                 <div class="columna" id="bOpciones">
-                    <button class="fila" id="btnEditar">EDITAR</button>
-                    <button class="fila" id="btnEliminar">ELIMINAR</button>
+                    <button class="fila" id="btnEditar" (click)="editarTarea(task)">EDITAR</button>
+                    <button class="fila" id="btnEliminar" (click)="borrarTarea(task.id)">ELIMINAR</button>
                 </div>
-            </div>
-        
+            </tr>
         </div>
       </div>
     </div>
 </div>
+<!--WindowNewTask-->
+<app-window-newtask *ngIf="taskEdit.visible" [taskEdit]="taskEdit" (cerrarVentana)="cerrarVentana($event)" (actualizarLista)="cargarTasks()"></app-window-newtask>

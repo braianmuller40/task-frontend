@@ -1,1 +1,47 @@
-<p>window-newtask works!</p>
+<form [formGroup]="form" (ngSubmit)="save($event)">
+ <div id="background">
+       <div id="container">
+            <div id="panelTitle">
+                <label id="labelTitle">NEW TASK</label>
+                <button  id="btnCerrar" (click)=cerrar()><label>X</label></button>
+            </div>
+           <div id="panelInputs">
+                <div *ngIf="taskEdit.editStatus" class="columnaInputs" id="inputId">
+                     <label>ID</label>
+                     <input type="text" formControlName="id" readonly>
+                </div>
+                <div class="columnaInputs" id="inputTitulo">
+                    <label>TITULO</label>
+                    <input type="text" formControlName="titulo">
+                </div>
+                <div class="columnaInputs" id="inputDescripcion">
+                    <label>DESCRIPCION</label>
+                    <textarea id="inputDescripcion" name="descripcion" rows="5" cols="33" formControlName="descripcion"></textarea>
+                </div>
+                <div class="fila" id="divFilaFecha">
+                  <div class="columnaInputs" id="inputPrioridad">
+                     <label>PRIORIDAD</label>
+                         <select name="prioridad" id="selectPrioridad" formControlName="nivelPrioridad">
+                             <option value="" hidden selected>--------------------------</option>
+                             <option value="M">MEDIA</option>
+                             <option value="A">ALTA</option>
+                             <option value="B">BAJA</option>
+                         </select>
+                  </div>
+                  <div class="columnaInputs" id="inputStatus">
+                     <label>STATUS</label>
+                        <select name="status" id="selectStatus" formControlName="status">
+                            <option value="" hidden selected>--------------------------</option>
+                          <option value="A">ACTIVA</option>
+                          <option value="C">CONCLUIDA</option>
+                          <option value="I">INACTIVA</option>
+                        </select>
+                  </div>
+               </div>    
+            <div class="fila" id="divGuardar">
+                <button id="btnGuardar" type="submit">GUARDAR</button>
+            </div>    
+        </div>
+     </div>
+    </div>
+</form>
