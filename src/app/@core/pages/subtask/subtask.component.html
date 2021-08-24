@@ -1,0 +1,40 @@
+<div id="background">
+    <div id="panelTop">
+        <label id="title">SUBTASKS</label>
+        <button class="fila" id="btnNewTask" (click)="nuevaTarea()">NEW SUBTASK</button>
+    </div>
+    <div id="panelMid">
+      <div id="tableMid">
+        <div id="headTable">
+            <div class="fila" id="headFila">
+                <div class="columna" id="hId"><label>ID</label></div>
+                <div class="columna" id="hTitulo"><label>TITULO</label></div>
+                <div class="columna" id="hFecha"><label>FECHA</label></div>
+                <div class="columna" id="hDescripcion"><label>DESCRIPCION</label></div>
+                <div class="columna" id="hPrioridad"><label>PRIORIDAD</label></div>
+                <div class="columna" id="hStatus"><label>STATUS</label></div>
+                <div class="columna" id="hSubTareas"><label>TAREA</label></div>
+                <div class="columna" id="hOpciones"><label></label></div>
+            </div>
+        </div>
+        <div id="bodyTable">
+            <tr *ngFor="let subTask of SUBTASKS" class="fila" id="bodyFila">
+                <div class="columna" id="bId">{{subTask.id}}</div>
+                <div class="columna" id="bTitulo">{{subTask.titulo}}</div>
+                <div class="columna" id="bFecha">{{subTask.fechaCreacion}}</div>
+                <div class="columna" id="bDescripcion">{{subTask.descripcion}}</div>
+                <div class="columna" id="bPrioridad">{{subTask.nivelPrioridad}}</div>
+                <div class="columna" id="bStatus">{{subTask.status}}</div>
+                <div class="columna" id="hSubTareas">{{subTask.task.id}}</div>
+                <div class="columna" id="bOpciones">
+                    <button class="fila" id="btnEditar" (click)="editarTarea(subTask)">EDITAR</button>
+                    <button class="fila" id="btnEliminar" (click)="borrarTarea(subTask.id)">ELIMINAR</button>
+                </div>
+            </tr>
+        </div>
+      </div>
+    </div>
+</div>
+<!--WindowNewTask-->
+<app-window-newsubtask *ngIf="subTaskEdit.visible" [subTaskEdit]="subTaskEdit" [paramTask]="paramTask" (cerrarVentana)="cerrarVentana($event)" (actualizarLista)="cargarTasks(paramTask)"></app-window-newsubtask>
+

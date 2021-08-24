@@ -26,7 +26,7 @@
                 <div class="columna" id="bPrioridad">{{task.nivelPrioridad}}</div>
                 <div class="columna" id="bStatus">{{task.status}}</div>
                 <div class="columna" id="hSubTareas">
-                   <button class="fila" id="btnSubTareas">SUB-TAREAS</button>
+                   <button class="fila" id="btnSubTareas" (click)="navegar(task.id)">SUB-TAREAS</button>
                 </div>
                 <div class="columna" id="bOpciones">
                     <button class="fila" id="btnEditar" (click)="editarTarea(task)">EDITAR</button>

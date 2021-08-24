@@ -16,12 +16,14 @@ export class WindowNewtaskComponent implements OnInit {
   form:FormGroup = new FormGroup({});
   newTask!:Task;
   localTask = new Task();
+  titulo!:string;
 
   constructor(private taskService:TaskService) {
   }
 
   ngOnInit(): void {
     this.taskEdit.editStatus?this.localTask=this.taskEdit.task:new Task();
+    this.taskEdit.titulo?this.titulo="EDITAR TASK":this.titulo="NEW TASK";
     this.buildForm();
   }
   
@@ -49,7 +51,7 @@ export class WindowNewtaskComponent implements OnInit {
     value.fechaCreacion = new Date().toString();
     this.newTask = value;
     this.taskEdit.editStatus?this.taskService.putTask(this.newTask).subscribe(result => {this.actualizarLista.emit();this.cerrar()}):
-    this.taskService.postTask(this.newTask).subscribe(result => {this.actualizarLista.emit()});
+    this.taskService.postTask(this.newTask).subscribe(result => {this.actualizarLista.emit();this.buildForm()});
   }
 
 

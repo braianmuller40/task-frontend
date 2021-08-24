@@ -1,6 +1,5 @@
 import { NivelPrioridad } from "./enums/prioridad";
 import { Status } from "./enums/status";
-import { subTask } from "./subTask.model";
 
 export class Task {
     "id": number;

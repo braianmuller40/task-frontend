@@ -1,0 +1,116 @@
+#background{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#panelTop{
+    width: 99%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+}
+#panelMid{
+    width: 99%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+#title{
+    font-size: large;
+    font-family: Arial,'Times New Roman', Times, serif;
+    margin-left: 15px;
+    font-size: large;
+}
+#tableMid{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#headTable{
+    width: 100%;
+    background-color: moccasin;
+}
+#bodyTable{
+    width: 100%;
+    height: 100%;
+    align-items: flex-start;
+}
+#headFila{
+    height: 35px;
+}
+#bodyFila{
+    height: 55px;
+}
+#hDescripcion{
+    width: 160%;
+}
+#bDescripcion{
+    width: 160%;
+}
+#btnEditar{
+   width: 80%;
+   height: 45%;
+   background-color: sandybrown;
+  
+}
+#btnEditar:hover{
+    cursor: pointer;
+    background-color: lightgray;
+}
+#btnEliminar{
+    width: 80%;
+    height: 45%;
+    margin-top: 2px;
+    background-color: rgba(233, 17, 17, 0.726);
+}
+#btnEliminar:hover{
+    cursor: pointer;
+    background-color: lightgray;
+}
+#btnSubTareas{
+    width: 65%;
+    height: 70%;
+    background-color: steelblue;
+}
+#btnSubTareas:hover{
+    cursor: pointer;
+    background-color: lightgray;
+}
+#btnNewTask{
+    width: 8%;
+    height: 80%;
+    margin-left: auto;
+    margin-right: 22px;
+    background-color: springgreen;
+}
+#btnNewTask:hover{
+    cursor: pointer;
+    background-color: lightgray;
+}
+.fila{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.columna{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    border-width: 1px;
+}

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 import { Task } from '../../models/task.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-task',
@@ -14,7 +15,7 @@ export class TaskComponent implements OnInit {
   taskEdit:any;
   TASKS!:Task[];
 
-  constructor(private taskService:TaskService) { 
+  constructor(private taskService:TaskService,private router: Router) { 
     this.taskEdit={
       titulo:false,
       task:{},
@@ -34,6 +35,7 @@ export class TaskComponent implements OnInit {
     this.taskEdit.editStatus=false;
     this.taskEdit.task={};
     this.taskEdit.visible = true;
+    this.taskEdit.titulo = false;
   }
   editarTarea(tarea:Task){
     this.taskEdit.titulo=true;
@@ -46,9 +48,12 @@ export class TaskComponent implements OnInit {
      this.taskService.getTasks().then(data => {this.TASKS=data})
      ,100);
   }
-
   borrarTarea(id:number){
     this.taskService.deleteTask(id).subscribe(result => {this.cargarTasks()});
+  }
+
+  navegar(id:number){
+    this.router.navigate(['/subTasks', id]);
   }
 
 
